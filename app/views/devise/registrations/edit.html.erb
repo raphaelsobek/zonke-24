@@ -1,0 +1,225 @@
+
+
+<div class="wrapper" style="margin-top: -20px">
+    <div class="form-signin">       
+        <h2 class="form-signin-heading">Edit <%= resource_name.to_s.humanize %></h2>
+        <div class="content-inner-details">
+            <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: :true}) do |f| %>
+            <%= f.error_notification %>
+
+            <h3>Personal details</h3>
+            <hr>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :name %>
+                        <%= f.text_field :name, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :first_name %>
+                        <%= f.text_field :first_name, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :last_name %>
+                        <%= f.text_field :last_name, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :email %>
+                        <%= f.email_field :email, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :mobile %>
+                        <%= f.text_field :mobile, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :birthday %>
+                        <%= f.date_field :birthday, required: true, autofocus: true ,class: "form-control", style: "height:45px" %>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="form-inputs">
+                        <%= f.label :Gender %>
+                        <br>
+                        <%= f.radio_button :gender, 'Male', :checked => true %> 
+                        <%= f.label :gender, 'Male', :value => 'Male' %>
+                        <%= f.radio_button :gender, 'Female' %>
+                        <%= f.label :gender, 'Female', :value => 'Female' %>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-inputs">
+                        <%= f.label :Ethinic %>
+                        <br>
+                        <%= f.radio_button :ethinic, 'Black', :checked => true %> 
+                        <%= f.label :gender, 'Black', :value => 'Black' %>
+                        <%= f.radio_button :gender, 'Coloured' %>
+                        <%= f.label :gender, 'Coloured', :value => 'Coloured' %>
+                        <%= f.radio_button :gender, 'Indian' %>
+                        <%= f.label :gender, 'Indian', :value => 'Indian' %>
+                        <%= f.radio_button :gender, 'White' %>
+                        <%= f.label :gender, 'White', :value => 'White' %>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-inputs">
+                        <%= f.label :Languages %>
+                        <br>
+                        <%= f.radio_button :language, 'English', :checked => true %> 
+                        <%= f.label :language, 'English', :value => 'English' %>
+                        <%= f.radio_button :language, 'Afrikaans' %>
+                        <%= f.label :language, 'Afrikaans', :value => 'Afrikaans' %>
+                        <%= f.radio_button :language, 'IsiZulu' %>
+                        <%= f.label :language, 'IsiZulu', :value => 'IsiZulu' %>
+                        <%= f.radio_button :language, 'Other' %>
+                        <%= f.label :language,' Other', :value => 'Other' %>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="form-inputs">
+                    <%= f.label :Tell_us_about_yourself %>
+                    <%= f.text_area :about, required: true, autofocus: true ,class: "form-control", :rows => 5 %>
+                </div>
+            </div>
+            <br>
+            <h3>Address details</h3>
+            <hr>
+            <div  class="row">
+                <div class="col-sm-6">
+                    <div class="form-inputs">
+                        <%= f.label :street  %>
+                        <%= f.text_field :streetAddress, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-inputs">
+                        <%= f.label :City %>
+                        <%= f.text_field :townCity, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+            <div  class="row">
+                <div class="col-sm-6">
+                    <div class="form-inputs">
+                        <%= f.label :Province %>
+                        <%= f.text_field :state, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-inputs">
+                        <%= f.label :country %>
+                        <%= f.text_field :country, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-inputs">
+                        <%= f.label :Work_Location %>
+                        <%= f.text_field :workLocation, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-inputs">
+                        <%= f.label :Your_Hourly_Rate %>
+                        <%= f.number_field :houtlyRate, required: true, autofocus: true ,class: "form-control" %>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="form-inputs">
+                        <%= f.label :Do_you_have_access_to_a_vehicle_that_you_can_reliably_use_for_tasks? %>
+                        <br>
+                        <%= f.radio_button :car, 'Yes', :checked => true %> 
+                        <%= f.label :car, 'Yes', :value => 'Yes' %>
+                        <%= f.radio_button :car, 'No' %>
+                        <%= f.label :car, 'No', :value => 'No' %>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-inputs">
+                        <%= f.label :Has_Touchscreen_Phone_? %>
+                        <br>
+                        <%= f.radio_button :phoneType, 'Android', :checked => true %> 
+                        <%= f.label :phoneType, 'Android', :value => 'Android' %>
+                        <%= f.radio_button :phoneType, 'IOS' %>
+                        <%= f.label :phoneType, 'IOS', :value => 'IOS' %>
+                        <%= f.radio_button :phoneType, 'Do not Know' %>
+                        <%= f.label :phoneType, 'Do not Know', :value => 'Do not Know' %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-6">
+
+            </div>
+        </div>
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+        <% end %>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-inputsl">
+                    <%= f.label :password %>
+                    <%= f.password_field :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),class: "form-control" %>
+                </div>
+            </div>
+
+            <div class="col-sm-4">
+                <div class="form-inputs">
+                    <%= f.label :Retype_password %>
+                    <%= f.password_field :password_confirmation, required: true,class: "form-control" %>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-inputs">
+                    <%= f.label :password_current %>
+                    <%= f.password_field :current_password, hint: "we need your current password to confirm your changes", required: true, class: "form-control" %>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+             <div class="form-group">
+        <%= f.label :avatar, class: 'col-sm-2 control-label'  %>
+        <div class="col-sm-6">
+            <%= f.file_field :avatar %>
+        </div>
+    </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">  
+                <div class="form-inputs">
+                    <%= f.button :submit, "Update" , class: "btn btn-primary btn-block" %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+        <h3>Cancel my account</h3>
+
+        <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+        <%= link_to "Back", :back %>
+
+    </div>
+</div>

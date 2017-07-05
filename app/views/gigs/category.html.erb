@@ -1,0 +1,5 @@
+  <td  class="col-md-6">
+      <p><%= link_to gig.name, gig %> <small class="label label-success"> <%= number_to_currency(gig.budget, precision: 0)  %></small></p>
+       <p><%= h truncate(gig.description, length:500) %></p> 
+       <p>Skills: <%= gig.skills.map{|s| s.name}.join(",") %></p>
+ </td>                       

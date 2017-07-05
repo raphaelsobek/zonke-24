@@ -1,0 +1,12 @@
+
+<p>
+  A new Task was posted for you <%= link_to @gig.name, @gig %>
+</p>
+<blockquote>
+	<em> <%= @proposal.bid %> </em>
+	<em><%= @proposal.description %></em>
+</blockquote>
+<p>
+To reply to this comment, please visit gig page at: 
+ <%= link_to "proposal page", @gig %>
+</p>

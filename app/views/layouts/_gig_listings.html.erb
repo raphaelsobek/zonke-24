@@ -1,0 +1,103 @@
+    
+<div class="page">
+    <div class="container">
+                        
+        <div class="section latest-jobs-ads">
+            <div class="row">
+                <div class="col-xs-12  col-md-3">
+
+                    <h3 class="sub-heading">Advance Search</h3>
+                    <div class="box">
+                        <%= form_tag search_gigs_path, method: :get do |f| %>
+                        <div class="form-group">
+                            <label>Search</label>
+                            <%= text_field_tag :search, nil, placeholder: "Plumber,Gardner, etc.", class: "form-control input-lg" %>
+                        </div>
+                        <div class="form-group">
+                            <label>Category</label>
+                            <%= select_tag :category, options_from_collection_for_select(Category.all, :id, :name), class: "form-control input-lg"%>
+                        </div>
+                        <div class="form-group">
+                            <label>Location</label>
+                            <%= text_field_tag :location, nil, placeholder: "Johannesburg, Pretoria, etc.", class: "form-control input-lg", autocomplete:"shipping street-address" %>
+                        </div>
+                        <%= submit_tag "search", class: " btn btn-primary input-lg btn-block" %>
+                        <% end %>
+                    </div>
+                </div> 
+
+
+                <!--  -->
+
+                <div class="section latest-jobs-ads">
+                          <div class="section-title tab-manu">
+                        <h3 class="sub-heading">
+                            Latest Task
+                         <span class="pull-right">
+                            <div class="dropdown">
+                              <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               Sort by
+                               <span class="caret"></span>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href="#"><%= link_to "Oldest", gigs_path(sort_by: "oldest") %></a>
+                                <a class="dropdown-item" href="#"><%= link_to "Newest", gigs_path(sort_by: "newest" )%></a>
+                                <a class="dropdown-item" href="#">Something else here</a>
+                              </div>
+                            </div>
+                        </span>
+                        </h3>
+                       
+                       
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-9 media">
+                        <div class="job-list">
+                            <div class="ad-info">
+
+                                <table class="table ">
+                                <thead>
+                                <tr>
+                                    <th class="">Photo</th>
+                                    <th class="">Task Name</th>
+                                    <th>Task Category</th>
+                                    <th>Location & Date</th>   
+                                </tr>
+                               </thead>
+                                    <tbody>
+                                        <% @gigs.each do |gig| %>
+                                        <tr>
+                                        <td>
+                                             <%= image_tag gig.image.url(:thumb), class: "gallery"  %> 
+                                        </td>
+                                            <td  class="col-md-3">
+                                                <p> 
+                                                    <strong><%= link_to gig.name, gig %></strong>  
+                                                    <small class="label label-success">
+                                                    <i class="fa fa-money"></i> 
+                                                    <%= number_to_currency(gig.budget, precision: 0, :unit => "R")  %>
+                                                    </small></p>
+
+                                                <p><%= h truncate(gig.description, length:500) %></p> 
+                                                <p>Skills: <%= gig.skills.map{|s| s.name}.join(",") %></p>
+                                            </td>
+                                            <td><i class="fa fa-tags"></i> <%= gig. category.name %></td>
+                                            <td class="job-location">
+                                                <p><i class="fa fa-calendar"></i> <%= gig.created_at.strftime ("%m %d,%Y")%></p>
+                                                <p><i class="fa fa-map-marker"> </i> <%= gig.location %> </p>
+                                            </td>
+                                        </tr>
+                                        <% end %>
+                                    </tbody>
+                                </table>
+                               <div class="pull-right">
+                                   <%= paginate @gigs %>
+                               </div>
+                        </div>
+                    </div>
+                </div>
+             
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
